@@ -23,20 +23,4 @@ module "bootstrap" {
   dynamo_db_table_name        = "aws-locks"
 }
 
-# Build the VPC 
 
-resource "aws_vpc" "vpc" { 
-
-  cidr_block           = "10.1.0.0/16" 
-
-  instance_tenancy     = "default" 
-
-  tags = { 
-
-    Name      = "Vpc" 
-
-    Terraform = "true" 
-
-  } 
-
-} 
