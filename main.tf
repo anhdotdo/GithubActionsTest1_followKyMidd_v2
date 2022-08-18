@@ -92,7 +92,7 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
 
         "options": {  
 
-            "awslogs-group" : "/ecs/fargate-task-definition", 
+            "awslogs-group" : "/ecs/ecs-task-definition-demo", 
 
             "awslogs-region": "us-east-1", 
 
