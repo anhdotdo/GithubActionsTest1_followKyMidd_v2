@@ -70,21 +70,23 @@ resource "aws_ecs_service" "demo-ecs-service-two" {
   } 
   desired_count = 1 
 } 
+
+
  
 resource "aws_ecs_task_definition" "demo-ecs-task-definition" { 
-  family                   = "ecs-task-definition-demo" 
-  network_mode             = "awsvpc" 
-  runtimePlatform { 
+  
+  "family": "ecs-task-definition-demo",
+  "network_mode": "awsvpc",
+  "runtimePlatform": { 
 
-    operatingSystemFamily  = "LINUX"
+    "operatingSystemFamily": "LINUX"
 
-  }
-  requires_compatibilities = ["FARGATE"] 
-  memory                   = "1024" 
-  cpu                      = "512" 
-  execution_role_arn       = "arn:aws:iam::335856564507:role/ecsInstanceRole"
-  container_definitions    = <<EOF
-  [
+  },
+  "requires_compatibilities": ["FARGATE"],
+  "memory": "1024", 
+  "cpu": "512", 
+  "execution_role_arn": "arn:aws:iam::335856564507:role/ecsInstanceRole",
+  "container_definitions": [
     { 
       "name": "demo-container", 
       "image": "335856564507.dkr.ecr.us-east-1.amazonaws.com/demo-repo:5ce176634bce1a437376815d5d222b07bac867e9", 
@@ -114,7 +116,6 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
       ] 
     } 
   ]
-  EOF
 } 
 
 
