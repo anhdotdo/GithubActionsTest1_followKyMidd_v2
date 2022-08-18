@@ -74,6 +74,11 @@ resource "aws_ecs_service" "demo-ecs-service-two" {
 resource "aws_ecs_task_definition" "demo-ecs-task-definition" { 
   family                   = "ecs-task-definition-demo" 
   network_mode             = "awsvpc" 
+  runtimePlatform { 
+
+    operatingSystemFamily  = "LINUX"
+
+  }
   requires_compatibilities = ["FARGATE"] 
   memory                   = "1024" 
   cpu                      = "512" 
@@ -100,7 +105,7 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
         }
 
       },
-      "entryPoint": ["/"], 
+      # "entryPoint": ["/"], 
       "portMappings": [ 
         { 
           "containerPort": 5000, 
