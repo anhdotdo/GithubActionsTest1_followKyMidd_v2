@@ -86,6 +86,19 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
       "memory": 1024, 
       "cpu": 512, 
       "essential": true, 
+      "logConfiguration": {  
+
+        "logDriver": "awslogs", 
+
+        "options": {  
+
+            "awslogs-group" : "/ecs/fargate-task-definition", 
+
+            "awslogs-region": "us-east-1", 
+
+            "awslogs-stream-prefix": "ecs" 
+
+      },
       "entryPoint": ["/"], 
       "portMappings": [ 
         { 
