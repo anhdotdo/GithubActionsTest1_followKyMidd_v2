@@ -79,7 +79,7 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
   cpu                      = "512" 
   execution_role_arn       = "arn:aws:iam::123456789012:role/ecsInstanceRole" 
   runtime_platform {
-    operatingSystemFamily  = "LINUX"
+    operating_system_family = "LINUX"
   }
   container_definitions    = <<EOF
   [ 
