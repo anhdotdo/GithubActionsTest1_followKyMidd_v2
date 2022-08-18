@@ -31,8 +31,8 @@ resource "aws_ecr_repository" "demo-repository" {
  
 resource "aws_ecr_repository_policy" "demo-repo-policy" { 
   repository = aws_ecr_repository.demo-repository.name 
-policy     = <<EOF 
-{ 
+policy = <<EOF
+{
   "Version": "2008-10-17", 
   "Statement": [ 
     { 
@@ -51,8 +51,9 @@ policy     = <<EOF
       ] 
     } 
   ] 
-} 
-EOF 
-} 
+}
+EOF
+}
+
 
 
