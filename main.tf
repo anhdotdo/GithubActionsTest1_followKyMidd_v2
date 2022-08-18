@@ -77,7 +77,7 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
   requires_compatibilities = ["FARGATE"] 
   memory                   = "1024" 
   cpu                      = "512" 
-  execution_role_arn       = "arn:aws:iam::335856564507:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::335856564507:role/ecsInstanceRole"
   container_definitions    = <<EOF
   [
     { 
