@@ -103,9 +103,7 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
         }
 
       },
-      "entryPoint": ["/"],
       "portMappings": [ 
-        
         { 
           "containerPort": 5000, 
           "hostPort": 5000 
