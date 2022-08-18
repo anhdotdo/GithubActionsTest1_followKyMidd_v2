@@ -89,8 +89,8 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
       "entryPoint": ["/"], 
       "portMappings": [ 
         { 
-          "containerPort": 6565, 
-          "hostPort": 5000
+          "containerPort": 80, 
+          "hostPort": 80
         } 
       ] 
     } 
