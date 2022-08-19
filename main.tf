@@ -71,6 +71,49 @@ resource "aws_ecs_cluster" "demo-ecs-cluster" {
 #   desired_count = 1 
 # } 
 
+# { 
+#    "containerDefinitions": [  
+#       {  
+#          "command": [ 
+#             "/bin/sh -c \"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\"" 
+#          ], 
+#          "entryPoint": [ 
+#             "sh", 
+#             "-c" 
+#          ], 
+#          "essential": true, 
+#          "image": "httpd:2.4", 
+#          "logConfiguration": {  
+#             "logDriver": "awslogs", 
+#             "options": {  
+#                "awslogs-group" : "/ecs/fargate-task-definition", 
+#                "awslogs-region": "us-east-1", 
+#                "awslogs-stream-prefix": "ecs" 
+#             } 
+#          }, 
+#          "name": "sample-fargate-app", 
+#          "portMappings": [  
+#             {  
+#                "containerPort": 80, 
+#                "hostPort": 80, 
+#                "protocol": "tcp" 
+#             } 
+#          ] 
+#       } 
+#    ], 
+#    "cpu": "256", 
+#    "executionRoleArn": "arn:aws:iam::012345678910:role/ecsTaskExecutionRole", 
+#    "family": "fargate-task-definition", 
+#    "memory": "512", 
+#    "networkMode": "awsvpc", 
+#    "runtimePlatform": { 
+#         "operatingSystemFamily": "LINUX" 
+#    }, 
+#    "requiresCompatibilities": [  
+#        "FARGATE"  
+#     ] 
+# } 
+
 resource "aws_ecs_task_definition" "demo-ecs-task-definition" { 
   family                   = "ecs-task-definition-demo" 
   network_mode             = "awsvpc" 
@@ -106,7 +149,8 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
       "portMappings": [ 
         { 
           "containerPort": 5000, 
-          "hostPort": 5000 
+          "hostPort": 5000,
+          "protocol": "tcp"
         } 
       ] 
     } 
