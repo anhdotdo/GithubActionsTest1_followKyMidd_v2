@@ -140,7 +140,8 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
 
             "awslogs-region": "us-east-1", 
 
-            "awslogs-stream-prefix": "ecs" 
+            "awslogs-stream-prefix": "ecs", 
+            "awslogs-create-group": "true"
         }
 
       },
