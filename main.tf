@@ -129,8 +129,8 @@ resource "aws_ecs_task_definition" "demo-ecs-task-definition" {
     { 
       "name": "demo-container", 
       "image": "335856564507.dkr.ecr.us-east-1.amazonaws.com/demo-repo:5ce176634bce1a437376815d5d222b07bac867e9", 
-      "memory": 1024, 
-      "cpu": 512, 
+      # "memory": 1024, 
+      # "cpu": 512, 
       "essential": true, 
       "logConfiguration": {  
 
