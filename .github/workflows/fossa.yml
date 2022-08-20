@@ -1,3 +1,10 @@
+name: FOSSA Action
+
+on:
+  push:
+    branches:
+      - "master"
+
 jobs: 
 
   fossa-scan: 
